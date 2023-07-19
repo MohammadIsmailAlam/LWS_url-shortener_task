@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import EntryPage from './EntryPage';
+import EditPage from './EditPage';
 
 const App = () => {
   const [shortURLs, setShortURLs] = useState([]);
@@ -20,12 +21,25 @@ const App = () => {
     setShortURLs([...shortURLs, { shortURL, longURL }]);
   };
 
-  
+const editURL = (shortURL, updatedLongURL) => {
+  // Finding the index of the short URL in the array
+  const index = shortURLs.findIndex((url) => url.shortURL === shortURL);
+  if (index !== -1) {
+    // Create a new copy of the shortURLs array with the updated long URL
+    const updatedShortURLs = [...shortURLs];
+    updatedShortURLs[index] = { ...updatedShortURLs[index], longURL: updatedLongURL };
+    setShortURLs(updatedShortURLs);
+  }
+};
+
+  const deleteURL = (shortURL) => {
+    setShortURLs(shortURLs.filter((url) => url.shortURL !== shortURL));
+  };
 
   const generateShortURL = () => {
-    // Implement short URL generation logic here
+    // Implementing short URL generation logic here
     // This can involve random string generation or using an external service
-    // For simplicity, let's generate a random 6-character string
+    // For simplicity, generated a random 6-character string
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let shortURL = '';
     for (let i = 0; i < 6; i++) {
@@ -38,6 +52,7 @@ const App = () => {
     <div>
       <h1>URL Shortening System</h1>
       <EntryPage createShortURL={createShortURL} />
+      <EditPage shortURLs={shortURLs} editURL={editURL} deleteURL={deleteURL} />
     </div>
   );
 };
