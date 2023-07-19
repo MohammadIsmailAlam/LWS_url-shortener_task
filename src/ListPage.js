@@ -1,18 +1,20 @@
-import React from 'react';
-import { List, ListItem, ListItemText } from '@material-ui/core';
+import React from "react";
+import { List, ListItem, ListItemText, Typography } from "@mui/material";
 
 const ListPage = ({ shortURLs, openLongURL }) => {
   return (
-    <List>
-        <div>
-        <h2>URL Shortening List</h2>
-        </div>
-      {shortURLs.map(({ shortURL, longURL }) => (
-        <ListItem key={shortURL} button onClick={() => openLongURL(longURL)}>
-          <ListItemText primary={shortURL} secondary={longURL} />
-        </ListItem>
-      ))}
-    </List>
+    <div>
+      <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+        URL Shortening List
+      </Typography>
+      <List>
+        {shortURLs.map(({ shortURL, longURL }) => (
+          <ListItem key={shortURL} button onClick={() => openLongURL(longURL)}>
+            <ListItemText primary={shortURL} secondary={longURL} />
+          </ListItem>
+        ))}
+      </List>
+    </div>
   );
 };
 

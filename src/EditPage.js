@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, List, ListItem, ListItemText, Dialog, DialogTitle, DialogContent, DialogActions, TextField } from "@material-ui/core";
+import { Button, Dialog, DialogTitle, DialogContent, DialogActions, TextField, List, ListItem, ListItemText } from "@mui/material";
 
 const EditPage = ({ shortURLs, editURL, deleteURL }) => {
   const [editDialogOpen, setEditDialogOpen] = useState(false);

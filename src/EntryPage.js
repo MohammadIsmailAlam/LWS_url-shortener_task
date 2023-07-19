@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, TextField } from '@material-ui/core';
+import { Button, TextField } from '@mui/material';
 
 const EntryPage = ({ createShortURL }) => {
   const [longURL, setLongURL] = useState('');
@@ -19,7 +19,7 @@ const EntryPage = ({ createShortURL }) => {
         onChange={(e) => setLongURL(e.target.value)}
         fullWidth
       />
-      <Button type="submit" variant="contained" color="primary" style={{ marginTop: '10px'}}>
+      <Button type="submit" variant="contained" color="primary" style={{ marginTop: '10px' }}>
         Generate Short URL
       </Button>
     </form>
