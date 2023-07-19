@@ -19,7 +19,7 @@ const EntryPage = ({ createShortURL }) => {
         onChange={(e) => setLongURL(e.target.value)}
         fullWidth
       />
-      <Button type="submit" variant="contained" color="primary">
+      <Button type="submit" variant="contained" color="primary" style={{ marginTop: '10px'}}>
         Generate Short URL
       </Button>
     </form>
