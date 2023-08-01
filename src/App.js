@@ -41,8 +41,14 @@ const App = () => {
   };
 
   const openLongURL = (longURL) => {
+    if (!longURL.startsWith("http://") && !longURL.startsWith("https://")) {
+      // If the longURL is not an absolute URL, assume it's a relative URL and append "http://" to it
+      longURL = "http://" + longURL;
+    }
     window.open(longURL, "_blank");
   };
+  
+  
 
   const generateShortURL = () => {
     // Implement short URL generation logic here
